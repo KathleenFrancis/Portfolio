@@ -10,6 +10,30 @@
   --font-serif: "DM Serif Display", serif;
 }
 
+/*
+ * Dark mode swaps the two page-level tokens instead of adding dark:
+ * variants to every text-ink/* and bg-cream/* utility in the app — those
+ * utilities read var(--color-ink) / var(--color-cream), so re-pointing the
+ * variables here (driven by [data-theme] on <html>, see src/App.tsx) flips
+ * the whole page's light/dark hierarchy in one place. Sections that are
+ * deliberately fixed — the dark "À propos" card and footer (.dark-panel),
+ * the coral contact band (.accent-panel), and the project mockups
+ * (.project-window) — re-pin the same variables locally so their accent
+ * colors (coral-light, dark-on-coral text) keep the contrast they were
+ * designed for, in either theme.
+ */
+:root {
+  --surface-muted: #e9e6dd;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --color-cream: #15191a;
+  --color-ink: #efece2;
+  --surface-muted: #1b1f20;
+  color-scheme: dark;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -20,6 +44,9 @@
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
   }
 
   ::selection {
@@ -44,7 +71,7 @@
   }
 
   .section-heading {
-    border-top: 1px solid rgb(24 32 34 / 0.15);
+    border-top: 1px solid color-mix(in srgb, var(--color-ink) 15%, transparent);
     padding-top: 1.5rem;
   }
 
@@ -105,7 +132,7 @@
   }
 
   .button-secondary {
-    border: 1px solid rgb(24 32 34 / 0.2);
+    border: 1px solid color-mix(in srgb, var(--color-ink) 20%, transparent);
     border-radius: 999px;
     padding: 0.9rem 1.4rem;
   }
@@ -135,7 +162,7 @@
     width: 3rem;
     height: 3rem;
     place-items: center;
-    border: 1px solid rgb(24 32 34 / 0.35);
+    border: 1px solid color-mix(in srgb, var(--color-ink) 35%, transparent);
     border-radius: 999px;
     transition: 200ms ease;
   }
@@ -145,18 +172,61 @@
     color: var(--color-cream);
     transform: translateY(-2px);
   }
+
+  .theme-toggle {
+    display: grid;
+    flex: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--color-ink) 18%, transparent);
+    border-radius: 999px;
+    transition:
+      color 200ms ease,
+      background-color 200ms ease,
+      transform 200ms ease;
+  }
+
+  .theme-toggle:hover {
+    background: var(--color-ink);
+    color: var(--color-cream);
+    transform: rotate(8deg);
+  }
 }
 
 .hero-grid {
   background-image:
-    linear-gradient(rgb(24 32 34 / 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(24 32 34 / 0.07) 1px, transparent 1px);
+    linear-gradient(
+      color-mix(in srgb, var(--color-ink) 8%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-ink) 8%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 72px 72px;
   mask-image: linear-gradient(to bottom, black, transparent 92%);
 }
 
+.journey-section {
+  background: var(--surface-muted);
+}
+
 .transition-gap {
   transition: gap 200ms ease;
+}
+
+/*
+ * Fixed-palette zones: re-pin the two tokens regardless of theme so content
+ * designed around one specific palette (coral-light on dark, dark text on
+ * coral, a static-looking app screenshot) never loses its contrast.
+ */
+.dark-panel,
+.accent-panel,
+.project-window {
+  --color-ink: #182022;
+  --color-cream: #f5f1e8;
 }
 
 @media (min-width: 768px) {

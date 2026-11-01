@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 const profile = {
   name: "Kathleen Mboutchouang",
@@ -20,7 +20,9 @@ type IconName =
   | "mail"
   | "map"
   | "menu"
+  | "moon"
   | "server"
+  | "sun"
   | "x";
 
 function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
@@ -88,11 +90,25 @@ function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
         <path d="M4 17h16" />
       </>
     ),
+    moon: <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />,
     server: (
       <>
         <rect width="18" height="8" x="3" y="3" rx="2" />
         <rect width="18" height="8" x="3" y="13" rx="2" />
         <path d="M7 7h.01M7 17h.01" />
+      </>
+    ),
+    sun: (
+      <>
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2" />
+        <path d="M12 20v2" />
+        <path d="m4.93 4.93 1.41 1.41" />
+        <path d="m17.66 17.66 1.41 1.41" />
+        <path d="M2 12h2" />
+        <path d="M20 12h2" />
+        <path d="m6.34 17.66-1.41 1.41" />
+        <path d="m19.07 4.93-1.41 1.41" />
       </>
     ),
     x: (
@@ -130,7 +146,7 @@ const projects = [
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
     color: "bg-[#dce6d5]",
     visual: (
-      <div className="project-window">
+      <div className="project-window text-ink">
         <div className="flex items-center gap-1.5 border-b border-ink/10 p-3">
           <span className="h-1.5 w-1.5 rounded-full bg-[#ff7a62]" />
           <span className="h-1.5 w-1.5 rounded-full bg-[#f4c95d]" />
@@ -170,7 +186,7 @@ const projects = [
     stack: ["React", "Express", "MongoDB", "Stripe"],
     color: "bg-[#f1d8c9]",
     visual: (
-      <div className="project-window p-3">
+      <div className="project-window p-3 text-ink">
         <div className="mb-3 flex items-center justify-between border-b border-ink/10 pb-2">
           <span className="font-serif text-xs italic">maison lune</span>
           <div className="flex gap-2">
@@ -205,7 +221,7 @@ const projects = [
     stack: ["TypeScript", "React", "REST API", "Chart.js"],
     color: "bg-[#d9d8ed]",
     visual: (
-      <div className="project-window p-3">
+      <div className="project-window p-3 text-ink">
         <div className="mb-3 flex items-center justify-between">
           <div className="h-2 w-20 rounded-full bg-ink/20" />
           <div className="h-5 w-14 rounded-full bg-white/60" />
@@ -255,8 +271,18 @@ const experiences = [
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(
+    () => document.documentElement.dataset.theme === "dark",
+  );
 
   const closeMenu = () => setMenuOpen(false);
+
+  const toggleTheme = () => setIsDark((current) => !current);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = isDark ? "dark" : "light";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
   return (
     <div className="min-h-screen overflow-hidden bg-cream text-ink">
@@ -278,30 +304,43 @@ function App() {
             </span>
           </a>
 
-          <div className="hidden items-center gap-8 text-sm font-medium md:flex">
-            <a className="nav-link" href="#a-propos">
-              À propos
-            </a>
-            <a className="nav-link" href="#projets">
-              Projets
-            </a>
-            <a className="nav-link" href="#parcours">
-              Parcours
-            </a>
-            <a className="button-small" href="#contact">
-              Me contacter <Icon name="arrow" size={16} />
-            </a>
-          </div>
+          <div className="flex items-center gap-3 md:gap-6">
+            <div className="hidden items-center gap-8 text-sm font-medium md:flex">
+              <a className="nav-link" href="#a-propos">
+                À propos
+              </a>
+              <a className="nav-link" href="#projets">
+                Projets
+              </a>
+              <a className="nav-link" href="#parcours">
+                Parcours
+              </a>
+              <a className="button-small" href="#contact">
+                Me contacter <Icon name="arrow" size={16} />
+              </a>
+            </div>
 
-          <button
-            aria-expanded={menuOpen}
-            aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            className="grid h-10 w-10 place-items-center rounded-full border border-ink/15 md:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-            type="button"
-          >
-            <Icon name={menuOpen ? "x" : "menu"} />
-          </button>
+            <button
+              aria-label={
+                isDark ? "Activer le mode clair" : "Activer le mode sombre"
+              }
+              className="theme-toggle"
+              onClick={toggleTheme}
+              type="button"
+            >
+              <Icon name={isDark ? "sun" : "moon"} size={18} />
+            </button>
+
+            <button
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              className="grid h-10 w-10 place-items-center rounded-full border border-ink/15 md:hidden"
+              onClick={() => setMenuOpen(!menuOpen)}
+              type="button"
+            >
+              <Icon name={menuOpen ? "x" : "menu"} />
+            </button>
+          </div>
         </nav>
 
         {menuOpen && (
@@ -335,7 +374,7 @@ function App() {
           <div className="hero-grid absolute inset-0 opacity-40" />
           <div className="page-container relative">
             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/40 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em]">
-              <span className="h-2 w-2 rounded-full bg-[#5d8b5c]" />
+              <span className="h-2 w-2 rounded-full bg-[#16d412]" />
               Disponible pour une opportunité
             </div>
 
@@ -379,7 +418,10 @@ function App() {
           </div>
         </section>
 
-        <section className="section-space bg-ink text-cream" id="a-propos">
+        <section
+          className="dark-panel section-space bg-ink text-cream"
+          id="a-propos"
+        >
           <div className="page-container">
             <div className="section-heading">
               <p className="eyebrow text-coral-light">01 · À propos</p>
@@ -529,7 +571,7 @@ function App() {
         </section>
 
         <section
-          className="section-space border-y border-ink/10 bg-[#e9e6dd]"
+          className="journey-section section-space border-y border-ink/10"
           id="parcours"
         >
           <div className="page-container grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
@@ -638,7 +680,10 @@ function App() {
           </div>
         </section>
 
-        <section className="bg-coral py-20 md:py-28" id="contact">
+        <section
+          className="accent-panel bg-coral py-20 text-ink md:py-28"
+          id="contact"
+        >
           <div className="page-container">
             <p className="eyebrow">05 · Un projet en tête ?</p>
             <div className="grid gap-10 lg:grid-cols-[1.35fr_0.65fr] lg:items-end">
@@ -693,7 +738,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="bg-ink py-7 text-cream">
+      <footer className="dark-panel bg-ink py-7 text-cream">
         <div className="page-container flex flex-col gap-3 text-xs text-cream/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 {profile.name}. Tous droits réservés.</p>
           <p>Conçu avec attention · Développé avec React</p>
