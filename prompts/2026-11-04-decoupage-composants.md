@@ -27,7 +27,7 @@ des sections.
   <HeroSection />
   <AboutSection />
   <ProjectsSection />
-  <JourneySection />
+  <WorkSection />
   <SkillsSection />
   <ContactSection />
 </main>
@@ -58,7 +58,7 @@ src/
     HeroSection.tsx              (#accueil)
     AboutSection.tsx             (#a-propos)
     ProjectsSection.tsx          (#projets — contient les données `projects`)
-    JourneySection.tsx           (#parcours — contient les données `experiences`)
+    WorkSection.tsx           (#parcours — contient les données `experiences`)
     SkillsSection.tsx            (pas d'ancre dans le code d'origine — contient les données `skills`)
     ContactSection.tsx           (#contact)
 ```
@@ -76,7 +76,13 @@ contenu qui n'est utilisé qu'à un seul endroit. Seul `profile` (utilisé par
   id="a-propos"
   className="dark-panel bg-ink text-cream"
   eyebrow="01 · À propos"
-  title={<>Curieuse par nature, <span className="italic text-coral-light">rigoureuse</span> par conviction.</>}
+  title={
+    <>
+      Curieuse par nature,{" "}
+      <span className="italic text-coral-light">rigoureuse</span> par
+      conviction.
+    </>
+  }
 >
   {/* contenu propre à la section */}
 </Section>
@@ -84,20 +90,20 @@ contenu qui n'est utilisé qu'à un seul endroit. Seul `profile` (utilisé par
 
 Props disponibles :
 
-| Prop | Rôle |
-| --- | --- |
-| `id` | Ancre de navigation (`href="#..."`) |
-| `className` | Classes sur la balise `<section>` (fond, couleur de texte, hauteur personnalisée…) |
-| `containerClassName` | Classes sur le `.page-container` interne (ex. `relative` pour un fond en position absolue) |
-| `spacing` | Applique le rythme vertical standard (`.section-space`). `false` pour une section à padding sur mesure |
-| `eyebrow` | Petite étiquette au-dessus du titre, ex. `"01 · À propos"` |
-| `title` | Titre de la section (`<h2>`). Omis = section sans en-tête générée |
-| `titleClassName` | Taille/graisse du titre (chaque section a sa propre typographie) |
-| `headingClassName` | Classes sur le bloc eyebrow+titre, ex. `max-w-2xl` |
-| `description` | Paragraphe optionnel sous ou à côté du titre |
-| `split` | Place la description à côté du titre (desktop) au lieu de dessous |
-| `bordered` | Ajoute la ligne de séparation au-dessus du titre |
-| `children` | Contenu de la section |
+| Prop                 | Rôle                                                                                                   |
+| -------------------- | ------------------------------------------------------------------------------------------------------ |
+| `id`                 | Ancre de navigation (`href="#..."`)                                                                    |
+| `className`          | Classes sur la balise `<section>` (fond, couleur de texte, hauteur personnalisée…)                     |
+| `containerClassName` | Classes sur le `.page-container` interne (ex. `relative` pour un fond en position absolue)             |
+| `spacing`            | Applique le rythme vertical standard (`.section-space`). `false` pour une section à padding sur mesure |
+| `eyebrow`            | Petite étiquette au-dessus du titre, ex. `"01 · À propos"`                                             |
+| `title`              | Titre de la section (`<h2>`). Omis = section sans en-tête générée                                      |
+| `titleClassName`     | Taille/graisse du titre (chaque section a sa propre typographie)                                       |
+| `headingClassName`   | Classes sur le bloc eyebrow+titre, ex. `max-w-2xl`                                                     |
+| `description`        | Paragraphe optionnel sous ou à côté du titre                                                           |
+| `split`              | Place la description à côté du titre (desktop) au lieu de dessous                                      |
+| `bordered`           | Ajoute la ligne de séparation au-dessus du titre                                                       |
+| `children`           | Contenu de la section                                                                                  |
 
 ### Sections qui utilisent l'en-tête générique
 
@@ -107,7 +113,7 @@ pleinement `eyebrow`/`title`/`description`/`split`/`bordered`.
 
 ### Sections à mise en page particulière
 
-`HeroSection`, `JourneySection` et `ContactSection` ont une structure propre
+`HeroSection`, `WorkSection` et `ContactSection` ont une structure propre
 (fond en grille absolu, deux colonnes côte à côte, bande corail avec CTA) qui
 ne correspond pas au schéma « étiquette + titre au-dessus du contenu ». Elles
 utilisent `Section` uniquement comme coquille (`id`, `spacing`,
@@ -118,20 +124,20 @@ ces trois cas aurait ajouté des props spécifiques à un seul usage chacune.
 
 ## Fichiers modifiés / créés
 
-| Fichier | Nature du changement |
-| --- | --- |
-| `src/App.tsx` | Réduit à la composition de `Header`, des 6 sections et `Footer` |
-| `src/components/Header.tsx` | Créé — nav, menu mobile, bouton de thème (état `menuOpen`/`isDark` déplacé ici depuis `App.tsx`) |
-| `src/components/Footer.tsx` | Créé |
-| `src/components/Section.tsx` | Créé — coquille réutilisable décrite ci-dessus |
-| `src/components/Icon.tsx` | Créé — déplacé tel quel depuis `App.tsx` |
-| `src/data/profile.ts` | Créé — déplacé tel quel depuis `App.tsx` |
-| `src/sections/HeroSection.tsx` | Créé |
-| `src/sections/AboutSection.tsx` | Créé |
-| `src/sections/ProjectsSection.tsx` | Créé — contient les données `projects` |
-| `src/sections/JourneySection.tsx` | Créé — contient les données `experiences` |
-| `src/sections/SkillsSection.tsx` | Créé — contient les données `skills` |
-| `src/sections/ContactSection.tsx` | Créé |
+| Fichier                            | Nature du changement                                                                             |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `src/App.tsx`                      | Réduit à la composition de `Header`, des 6 sections et `Footer`                                  |
+| `src/components/Header.tsx`        | Créé — nav, menu mobile, bouton de thème (état `menuOpen`/`isDark` déplacé ici depuis `App.tsx`) |
+| `src/components/Footer.tsx`        | Créé                                                                                             |
+| `src/components/Section.tsx`       | Créé — coquille réutilisable décrite ci-dessus                                                   |
+| `src/components/Icon.tsx`          | Créé — déplacé tel quel depuis `App.tsx`                                                         |
+| `src/data/profile.ts`              | Créé — déplacé tel quel depuis `App.tsx`                                                         |
+| `src/sections/HeroSection.tsx`     | Créé                                                                                             |
+| `src/sections/AboutSection.tsx`    | Créé                                                                                             |
+| `src/sections/ProjectsSection.tsx` | Créé — contient les données `projects`                                                           |
+| `src/sections/WorkSection.tsx`     | Créé — contient les données `experiences`                                                        |
+| `src/sections/SkillsSection.tsx`   | Créé — contient les données `skills`                                                             |
+| `src/sections/ContactSection.tsx`  | Créé                                                                                             |
 
 Aucun fichier CSS n'a été modifié. Le contenu (textes, données, liens) est
 resté strictement identique — seule l'organisation du code a changé.
@@ -157,14 +163,14 @@ resté strictement identique — seule l'organisation du code a changé.
 
 ## Vérifications effectuées
 
-| Vérification | Résultat |
-| --- | --- |
-| `npx tsc --noEmit` | ✅ Aucune erreur |
-| `npm run build` | ✅ Build réussi (27 modules, < 1,1 s) |
-| Test navigateur (Playwright, headless Chromium) | ✅ Aucune erreur console |
-| Captures d'écran — Hero, À propos, Projets, Parcours, Outils, Contact (clair) | ✅ Rendu identique à l'avant-refactorisation |
-| Capture d'écran — Hero (sombre) | ✅ Mode sombre toujours fonctionnel après le découpage |
-| Capture d'écran — menu mobile | ✅ Ouverture/fermeture, liens, bouton de thème tous fonctionnels |
+| Vérification                                                                  | Résultat                                                         |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `npx tsc --noEmit`                                                            | ✅ Aucune erreur                                                 |
+| `npm run build`                                                               | ✅ Build réussi (27 modules, < 1,1 s)                            |
+| Test navigateur (Playwright, headless Chromium)                               | ✅ Aucune erreur console                                         |
+| Captures d'écran — Hero, À propos, Projets, Parcours, Outils, Contact (clair) | ✅ Rendu identique à l'avant-refactorisation                     |
+| Capture d'écran — Hero (sombre)                                               | ✅ Mode sombre toujours fonctionnel après le découpage           |
+| Capture d'écran — menu mobile                                                 | ✅ Ouverture/fermeture, liens, bouton de thème tous fonctionnels |
 
 ## Points d'attention pour la suite
 
@@ -173,6 +179,6 @@ resté strictement identique — seule l'organisation du code a changé.
   de navigation. Comportement préexistant, volontairement conservé tel quel
   (non demandé dans cette tâche).
 - Si une future section partage la mise en page « étiquette + titre en
-  colonne de gauche, contenu en colonne de droite » (comme `JourneySection`),
+  colonne de gauche, contenu en colonne de droite » (comme `WorkSection`),
   il sera temps d'envisager une variante `layout="sidebar"` pour `Section` —
   prématuré tant qu'un seul cas existe.

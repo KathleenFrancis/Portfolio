@@ -3,9 +3,9 @@ import Header from "./components/Header";
 import AboutSection from "./sections/AboutSection";
 import ContactSection from "./sections/ContactSection";
 import IntroSection from "./sections/IntroSection";
-import JourneySection from "./sections/JourneySection";
 import ProjectsSection from "./sections/ProjectsSection";
 import SkillsSection from "./sections/SkillsSection";
+import WorkSection from "./sections/WorkSection";
 
 // Pour ajouter/retirer une section de la page, ajoute/retire son composant
 // ici (et son lien dans Header.tsx si elle doit être accessible depuis la nav).
@@ -17,7 +17,7 @@ function App() {
         <IntroSection />
         <AboutSection />
         <ProjectsSection />
-        <JourneySection />
+        <WorkSection />
         <SkillsSection />
         <ContactSection />
       </main>

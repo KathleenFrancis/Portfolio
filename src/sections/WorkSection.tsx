@@ -21,11 +21,11 @@ const experiences = [
   },
 ];
 
-function JourneySection() {
+function WorkSection() {
   return (
     <Section
       id="parcours"
-      className="journey-section border-y border-ink/10"
+      className="work-section border-y border-ink/10"
       containerClassName="grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24"
     >
       <div>
@@ -84,4 +84,4 @@ function JourneySection() {
   );
 }
 
-export default JourneySection;
+export default WorkSection;
