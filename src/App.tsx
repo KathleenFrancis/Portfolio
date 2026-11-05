@@ -13,6 +13,7 @@ type IconName =
   | "arrow"
   | "code"
   | "database"
+  | "download"
   | "external"
   | "github"
   | "layers"
@@ -45,6 +46,13 @@ function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
         <ellipse cx="12" cy="5" rx="7" ry="3" />
         <path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5" />
         <path d="M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7" />
+      </>
+    ),
+    download: (
+      <>
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <polyline points="7 10 12 15 17 10" />
+        <line x1="12" y1="15" x2="12" y2="3" />
       </>
     ),
     external: (
@@ -401,9 +409,10 @@ function App() {
                 </a>
                 <a
                   className="button-secondary"
-                  href={`mailto:${profile.email}`}
+                  download
+                  href="/public/cv/cv-fr-kathleen-mboutchouang-dev.pdf"
                 >
-                  <Icon name="mail" size={18} /> Écrivez-moi
+                  <Icon name="download" size={18} /> Télécharger mon CV
                 </a>
               </div>
             </div>
