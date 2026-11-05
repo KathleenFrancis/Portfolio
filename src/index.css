@@ -192,6 +192,84 @@
     color: var(--color-cream);
     transform: rotate(8deg);
   }
+
+  .contact-label {
+    display: block;
+    margin-bottom: 0.65rem;
+    color: color-mix(in srgb, var(--color-cream) 65%, transparent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .contact-form-on-accent {
+    --contact-form-color: var(--color-ink);
+  }
+
+  .contact-form-on-accent .contact-label {
+    color: color-mix(in srgb, var(--contact-form-color) 70%, transparent);
+  }
+
+  .contact-form-on-accent .contact-field {
+    border-color: color-mix(
+      in srgb,
+      var(--contact-form-color) 35%,
+      transparent
+    );
+    color: var(--contact-form-color);
+  }
+
+  .contact-form-on-accent .contact-field::placeholder {
+    color: color-mix(in srgb, var(--contact-form-color) 45%, transparent);
+  }
+
+  .contact-form-on-accent .contact-field:focus {
+    border-color: var(--contact-form-color);
+  }
+
+  .contact-field {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--color-cream) 25%, transparent);
+    border-radius: 0;
+    background: transparent;
+    padding: 0.65rem 0 0.85rem;
+    color: var(--color-cream);
+    outline: none;
+    transition: border-color 200ms ease;
+  }
+
+  .contact-field::placeholder {
+    color: color-mix(in srgb, var(--color-cream) 30%, transparent);
+  }
+
+  .contact-field:focus {
+    border-color: var(--color-coral-light);
+  }
+
+  .contact-submit {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    border-radius: 999px;
+    background: var(--color-ink);
+    padding: 0.9rem 1.3rem;
+    color: var(--color-coral);
+    font-size: 0.875rem;
+    font-weight: 700;
+    transition:
+      gap 200ms ease,
+      transform 200ms ease;
+  }
+
+  .contact-submit:hover {
+    gap: 0.9rem;
+    transform: translateY(-2px);
+  }
 }
 
 .hero-grid {
