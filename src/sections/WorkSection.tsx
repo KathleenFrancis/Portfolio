@@ -1,25 +1,6 @@
+import ExperienceComponent from "../components/ExperienceComponent";
 import Section from "../components/Section";
-
-const experiences = [
-  {
-    date: "2024 — 2025",
-    role: "Développeuse full stack",
-    company: "Studio Digital · Alternance",
-    text: "Développement de fonctionnalités métier, création d’API et participation aux choix techniques au sein d’une équipe agile.",
-  },
-  {
-    date: "2024",
-    role: "Développeuse front-end",
-    company: "Agence Web · Stage",
-    text: "Intégration d’interfaces responsives et accessibles, connexion aux API et optimisation de l’expérience utilisateur.",
-  },
-  {
-    date: "2023",
-    role: "Développeuse web",
-    company: "Startup SaaS · Stage",
-    text: "Conception d’un outil interne, de la modélisation des données jusqu’au déploiement de l’interface.",
-  },
-];
+import { Experiences } from "../data/Experiences";
 
 function WorkSection() {
   return (
@@ -44,28 +25,12 @@ function WorkSection() {
       </div>
 
       <div>
-        {experiences.map((experience, index) => (
-          <article
-            className="relative border-t border-ink/20 py-8 pl-8 first:pt-0 lg:grid lg:grid-cols-[140px_1fr] lg:gap-8 lg:pl-0"
+        {Experiences.map((experience, index) => (
+          <ExperienceComponent
+            experience={experience}
+            isLast={index === Experiences.length - 1}
             key={experience.role}
-          >
-            <span className="absolute left-0 top-9 h-2.5 w-2.5 rounded-full bg-coral first:top-1 lg:hidden" />
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-ink/45 lg:mb-0">
-              {experience.date}
-            </p>
-            <div>
-              <h3 className="font-serif text-2xl">{experience.role}</h3>
-              <p className="mt-1 text-sm font-bold text-coral">
-                {experience.company}
-              </p>
-              <p className="mt-4 max-w-xl leading-relaxed text-ink/60">
-                {experience.text}
-              </p>
-            </div>
-            {index === experiences.length - 1 && (
-              <div className="absolute bottom-0 left-0 h-px w-full bg-ink/20" />
-            )}
-          </article>
+          />
         ))}
 
         <article className="grid py-8 pl-8 lg:grid-cols-[140px_1fr] lg:gap-8 lg:pl-0">
