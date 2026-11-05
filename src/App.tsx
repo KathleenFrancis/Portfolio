@@ -2,7 +2,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import AboutSection from "./sections/AboutSection";
 import ContactSection from "./sections/ContactSection";
-import IntroSection from "./sections/IntroSection";
+import HeroSection from "./sections/HeroSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import SkillsSection from "./sections/SkillsSection";
 import WorkSection from "./sections/WorkSection";
@@ -14,7 +14,7 @@ function App() {
     <div className="min-h-screen overflow-hidden bg-cream text-ink">
       <Header />
       <main>
-        <IntroSection />
+        <HeroSection />
         <AboutSection />
         <ProjectsSection />
         <WorkSection />

@@ -2,7 +2,7 @@ import Icon from "../components/Icon";
 import Section from "../components/Section";
 import { Profile } from "../data/Profile";
 
-function IntroSection() {
+function HeroSection() {
   return (
     <Section
       id="accueil"
@@ -57,4 +57,4 @@ function IntroSection() {
   );
 }
 
-export default IntroSection;
+export default HeroSection;
