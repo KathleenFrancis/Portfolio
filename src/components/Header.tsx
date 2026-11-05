@@ -25,7 +25,7 @@ function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-cream/90 backdrop-blur-md">
       <nav
-        className="page-container flex h-[72px] items-center justify-between"
+        className="page-container flex h-18 items-center justify-between"
         aria-label="Navigation principale"
       >
         <a

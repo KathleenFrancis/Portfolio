@@ -7,7 +7,7 @@ function IntroSection() {
     <Section
       id="accueil"
       spacing={false}
-      className="relative min-h-[820px] pb-0 pt-32 md:min-h-[760px] md:pb-0 md:pt-44"
+      className="relative min-h-205 pb-0 pt-32 md:min-h-190 md:pb-0 md:pt-44"
       containerClassName="relative"
     >
       <div className="hero-grid absolute inset-0 opacity-40" />

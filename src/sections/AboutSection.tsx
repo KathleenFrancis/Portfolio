@@ -1,5 +1,5 @@
-import Section from "../components/Section";
 import Icon from "../components/Icon";
+import Section from "../components/Section";
 
 function AboutSection() {
   return (
@@ -18,7 +18,7 @@ function AboutSection() {
     >
       <div className="mt-14 grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-24">
         <div className="relative">
-          <div className="aspect-[4/3] border border-cream/15 bg-[#242b2d] p-6 md:p-10">
+          <div className="aspect-4/3 border border-cream/15 bg-[#242b2d] p-6 md:p-10">
             <div className="flex h-full flex-col justify-between">
               <div className="flex justify-between text-xs uppercase tracking-[0.16em] text-cream/45">
                 <span>01 — Design</span>
@@ -52,9 +52,9 @@ function AboutSection() {
           </p>
           <p className="mt-7 max-w-xl leading-relaxed text-cream/60">
             Mes stages et mon alternance m’ont permis de travailler sur des
-            projets concrets, en collaboration avec des designers,
-            développeurs et équipes métier. J’accorde autant d’importance à
-            la qualité du code qu’à l’expérience finale.
+            projets concrets, en collaboration avec des designers, développeurs
+            et équipes métier. J’accorde autant d’importance à la qualité du
+            code qu’à l’expérience finale.
           </p>
           <div className="mt-10 grid grid-cols-3 border-y border-cream/15 py-6">
             <div>
