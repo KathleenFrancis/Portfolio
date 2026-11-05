@@ -1,6 +1,6 @@
 import Icon from "../components/Icon";
 import Section from "../components/Section";
-import { profile } from "../data/profile";
+import { Profile } from "../data/Profile";
 
 function IntroSection() {
   return (
@@ -48,7 +48,7 @@ function IntroSection() {
 
       <div className="mt-16 flex items-center justify-between border-t border-ink/15 py-5 text-xs font-semibold uppercase tracking-[0.16em] text-ink/55 md:mt-20">
         <span className="flex items-center gap-2">
-          <Icon name="map" size={15} /> {profile.city}
+          <Icon name="map" size={15} /> {Profile.city}
         </span>
         <span className="hidden sm:block">Scroll pour explorer</span>
         <span>2026</span>

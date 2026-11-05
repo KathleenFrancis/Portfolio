@@ -1,6 +1,6 @@
-import Section from "../components/Section";
 import Icon from "../components/Icon";
-import { profile } from "../data/profile";
+import Section from "../components/Section";
+import { Profile } from "../data/Profile";
 
 function ContactSection() {
   return (
@@ -19,21 +19,21 @@ function ContactSection() {
           </h2>
           <a
             className="mt-10 inline-flex items-center gap-3 border-b-2 border-ink pb-2 text-lg font-bold transition-gap hover:gap-5 md:text-2xl"
-            href={`mailto:${profile.email}`}
+            href={`mailto:${Profile.email}`}
           >
-            {profile.email} <Icon name="arrow" />
+            {Profile.email} <Icon name="arrow" />
           </a>
         </div>
         <div className="border-t border-ink/20 pt-7">
           <p className="mb-5 text-sm leading-relaxed text-ink/70">
-            Je suis à l’écoute d’une première opportunité en CDI et de
-            projets qui ont du sens.
+            Je suis à l’écoute d’une première opportunité en CDI et de projets
+            qui ont du sens.
           </p>
           <div className="flex gap-3">
             <a
               aria-label="GitHub"
               className="social-link"
-              href={profile.github}
+              href={Profile.github}
               rel="noreferrer"
               target="_blank"
             >
@@ -42,7 +42,7 @@ function ContactSection() {
             <a
               aria-label="LinkedIn"
               className="social-link"
-              href={profile.linkedin}
+              href={Profile.linkedin}
               rel="noreferrer"
               target="_blank"
             >
@@ -51,7 +51,7 @@ function ContactSection() {
             <a
               aria-label="E-mail"
               className="social-link"
-              href={`mailto:${profile.email}`}
+              href={`mailto:${Profile.email}`}
             >
               <Icon name="mail" />
             </a>

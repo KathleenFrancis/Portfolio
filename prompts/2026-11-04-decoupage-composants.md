@@ -53,7 +53,7 @@ src/
     Section.tsx                 — coquille réutilisable (voir ci-dessous)
     Icon.tsx                    — composant Icon + type IconName
   data/
-    profile.ts                  — nom, email, ville, liens (partagé entre plusieurs sections)
+    Profile.ts                  — nom, email, ville, liens (partagé entre plusieurs sections)
   sections/
     IntroSection.tsx              (#accueil)
     AboutSection.tsx             (#a-propos)
@@ -66,7 +66,7 @@ src/
 Les données propres à une seule section (`projects`, `experiences`, `skills`)
 sont restées dans le fichier de la section correspondante plutôt que d'être
 extraites dans `data/`, pour éviter d'ajouter un niveau d'indirection pour du
-contenu qui n'est utilisé qu'à un seul endroit. Seul `profile` (utilisé par
+contenu qui n'est utilisé qu'à un seul endroit. Seul `Profile` (utilisé par
 `Header`, `IntroSection`, `ProjectsSection` et `ContactSection`) est partagé.
 
 ## Le composant `Section`
@@ -131,7 +131,7 @@ ces trois cas aurait ajouté des props spécifiques à un seul usage chacune.
 | `src/components/Footer.tsx`        | Créé                                                                                             |
 | `src/components/Section.tsx`       | Créé — coquille réutilisable décrite ci-dessus                                                   |
 | `src/components/Icon.tsx`          | Créé — déplacé tel quel depuis `App.tsx`                                                         |
-| `src/data/profile.ts`              | Créé — déplacé tel quel depuis `App.tsx`                                                         |
+| `src/data/Profile.ts`              | Créé — déplacé tel quel depuis `App.tsx`                                                         |
 | `src/sections/IntroSection.tsx`    | Créé                                                                                             |
 | `src/sections/AboutSection.tsx`    | Créé                                                                                             |
 | `src/sections/ProjectsSection.tsx` | Créé — contient les données `projects`                                                           |

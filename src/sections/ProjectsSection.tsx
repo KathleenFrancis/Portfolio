@@ -1,6 +1,6 @@
-import Section from "../components/Section";
 import Icon from "../components/Icon";
-import { profile } from "../data/profile";
+import Section from "../components/Section";
+import { Profile } from "../data/Profile";
 
 const projects = [
   {
@@ -145,14 +145,17 @@ function ProjectsSection() {
               </p>
               <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
                 {project.stack.map((item) => (
-                  <span className="text-xs font-semibold text-ink/55" key={item}>
+                  <span
+                    className="text-xs font-semibold text-ink/55"
+                    key={item}
+                  >
                     — {item}
                   </span>
                 ))}
               </div>
               <a
                 className="mt-7 inline-flex items-center gap-2 text-sm font-bold underline decoration-ink/25 underline-offset-4 transition-colors hover:text-coral"
-                href={profile.github}
+                href={Profile.github}
               >
                 Voir sur GitHub <Icon name="external" size={16} />
               </a>

@@ -1,4 +1,4 @@
-export const profile = {
+export const Profile = {
   name: "Kathleen Mboutchouang",
   initials: "KM",
   email: "kathleen.mboutchouang.dev@gmail.com",

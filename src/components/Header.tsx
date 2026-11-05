@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { profile } from "../data/profile";
+import { Profile } from "../data/Profile";
 import Icon from "./Icon";
 
 const navLinks = [
@@ -34,10 +34,10 @@ function Header() {
           onClick={closeMenu}
         >
           <span className="grid h-9 w-9 place-items-center rounded-full bg-ink text-xs font-bold tracking-wide text-cream transition-transform group-hover:-rotate-6">
-            {profile.initials}
+            {Profile.initials}
           </span>
           <span className="text-sm font-semibold tracking-tight">
-            {profile.name}
+            {Profile.name}
           </span>
         </a>
 
