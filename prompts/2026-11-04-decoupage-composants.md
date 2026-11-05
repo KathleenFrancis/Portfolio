@@ -24,7 +24,7 @@ des sections.
 ```tsx
 <Header />
 <main>
-  <HeroSection />
+  <IntroSection />
   <AboutSection />
   <ProjectsSection />
   <WorkSection />
@@ -55,7 +55,7 @@ src/
   data/
     profile.ts                  — nom, email, ville, liens (partagé entre plusieurs sections)
   sections/
-    HeroSection.tsx              (#accueil)
+    IntroSection.tsx              (#accueil)
     AboutSection.tsx             (#a-propos)
     ProjectsSection.tsx          (#projets — contient les données `projects`)
     WorkSection.tsx           (#parcours — contient les données `experiences`)
@@ -67,7 +67,7 @@ Les données propres à une seule section (`projects`, `experiences`, `skills`)
 sont restées dans le fichier de la section correspondante plutôt que d'être
 extraites dans `data/`, pour éviter d'ajouter un niveau d'indirection pour du
 contenu qui n'est utilisé qu'à un seul endroit. Seul `profile` (utilisé par
-`Header`, `HeroSection`, `ProjectsSection` et `ContactSection`) est partagé.
+`Header`, `IntroSection`, `ProjectsSection` et `ContactSection`) est partagé.
 
 ## Le composant `Section`
 
@@ -113,7 +113,7 @@ pleinement `eyebrow`/`title`/`description`/`split`/`bordered`.
 
 ### Sections à mise en page particulière
 
-`HeroSection`, `WorkSection` et `ContactSection` ont une structure propre
+`IntroSection`, `WorkSection` et `ContactSection` ont une structure propre
 (fond en grille absolu, deux colonnes côte à côte, bande corail avec CTA) qui
 ne correspond pas au schéma « étiquette + titre au-dessus du contenu ». Elles
 utilisent `Section` uniquement comme coquille (`id`, `spacing`,
@@ -132,7 +132,7 @@ ces trois cas aurait ajouté des props spécifiques à un seul usage chacune.
 | `src/components/Section.tsx`       | Créé — coquille réutilisable décrite ci-dessus                                                   |
 | `src/components/Icon.tsx`          | Créé — déplacé tel quel depuis `App.tsx`                                                         |
 | `src/data/profile.ts`              | Créé — déplacé tel quel depuis `App.tsx`                                                         |
-| `src/sections/HeroSection.tsx`     | Créé                                                                                             |
+| `src/sections/IntroSection.tsx`    | Créé                                                                                             |
 | `src/sections/AboutSection.tsx`    | Créé                                                                                             |
 | `src/sections/ProjectsSection.tsx` | Créé — contient les données `projects`                                                           |
 | `src/sections/WorkSection.tsx`     | Créé — contient les données `experiences`                                                        |
