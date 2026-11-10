@@ -4,23 +4,33 @@ import Icon, { type IconName } from "../components/Icon";
 const skills: { icon: IconName; title: string; items: string }[] = [
   {
     icon: "code",
-    title: "Front-end",
-    items: "React · TypeScript\nHTML · CSS · Tailwind",
+    title: "Langages",
+    items: "C# · C++ · Java\nTypeScript · JavaScript\nPython · HTML · CSS",
   },
   {
-    icon: "server",
-    title: "Back-end",
-    items: "Node.js · Express\nAPI REST · Auth",
+    icon: "layers",
+    title: "Frameworks",
+    items: ".NET · ASP.NET Core\nAngularJS · ReactJS · RxJS",
   },
   {
     icon: "database",
     title: "Données",
-    items: "PostgreSQL · MongoDB\nPrisma · SQL",
+    items: "SQL · Oracle · PostgreSQL",
+  },
+  {
+    icon: "server",
+    title: "Outils",
+    items: "Git · GitHub · GitLab\nDocker · Kubernetes · Bazel\nLinux · VS Code",
+  },
+  {
+    icon: "map",
+    title: "Méthodologie",
+    items: "Agile (Scrum)\nTDD",
   },
   {
     icon: "layers",
-    title: "Outils",
-    items: "Git · GitHub · Figma\nDocker · Méthode agile",
+    title: "Modélisation",
+    items: "UML\nPlantUML · LucidChart",
   },
 ];
 
