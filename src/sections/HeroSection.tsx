@@ -29,8 +29,8 @@ function HeroSection() {
 
       <div className="mt-10 flex flex-col gap-8 md:ml-auto md:mt-14 md:max-w-xl">
         <p className="text-lg leading-relaxed text-ink/70 md:text-xl">
-          Fraîchement diplômée, je conçois des expériences web utiles et
-          soignées, du premier composant jusqu’à la base de données.
+          Je conçois des expériences web utiles et soignées, du premier
+          composant jusqu’à la base de données.
         </p>
         <div className="flex flex-wrap gap-3">
           <a className="button-primary" href="#projets">
