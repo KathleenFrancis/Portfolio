@@ -2,6 +2,19 @@ import ExperienceComponent from "../components/ExperienceComponent";
 import Section from "../components/Section";
 import { Experiences } from "../data/Experiences";
 
+const education = [
+  {
+    date: "Diplômée en novembre 2026",
+    title: "Baccalauréat en génie logiciel",
+    institution: "École de technologie supérieure",
+  },
+  {
+    date: "2021",
+    title: "DEC en techniques d’intégration multimédia",
+    institution: "Collège de Maisonneuve",
+  },
+];
+
 function WorkSection() {
   return (
     <Section
@@ -29,21 +42,26 @@ function WorkSection() {
           <ExperienceComponent
             experience={experience}
             isLast={index === Experiences.length - 1}
-            key={experience.role}
+            key={experience.company}
           />
         ))}
 
-        <article className="grid py-8 pl-8 lg:grid-cols-[140px_1fr] lg:gap-8 lg:pl-0">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-ink/45 lg:mb-0">
-            2022 — 2025
-          </p>
-          <div>
-            <h3 className="font-serif text-2xl">Master Développement Web</h3>
-            <p className="mt-1 text-sm font-bold text-coral">
-              École du numérique · Diplômée
+        {education.map((item) => (
+          <article
+            className="grid py-8 pl-8 lg:grid-cols-[140px_1fr] lg:gap-8 lg:pl-0"
+            key={item.title}
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-ink/45 lg:mb-0">
+              {item.date}
             </p>
-          </div>
-        </article>
+            <div>
+              <h3 className="font-serif text-2xl">{item.title}</h3>
+              <p className="mt-1 text-sm font-bold text-coral">
+                {item.institution}
+              </p>
+            </div>
+          </article>
+        ))}
       </div>
     </Section>
   );

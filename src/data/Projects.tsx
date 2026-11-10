@@ -1,4 +1,10 @@
 import type { ReactNode } from "react";
+import Icon from "../components/Icon";
+
+export type ProjectLink = {
+  label: string;
+  url: string;
+};
 
 export type Project = {
   number: string;
@@ -8,115 +14,195 @@ export type Project = {
   stack: string[];
   color: string;
   visual: ReactNode;
+  links: ProjectLink[];
 };
 
 export const Projects: Project[] = [
   {
     number: "01",
-    type: "Application web",
-    title: "Planify",
+    type: "Recherche documentaire & IA",
+    title: "LitExtract AI",
     description:
-      "Un espace collaboratif pour organiser les projets, répartir les tâches et suivre leur progression en équipe.",
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+      "Un outil de recherche et d’analyse de documents basé sur des techniques d’intelligence artificielle, pensé pour améliorer la pertinence des résultats.",
+    stack: ["Python", "FastAPI", "ReactJS", "Ollama"],
     color: "bg-[#dce6d5]",
+    links: [
+      { label: "Voir sur GitHub", url: "https://github.com/KathleenFrancis" },
+    ],
     visual: (
-      <div className="project-window text-ink">
-        <div className="flex items-center gap-1.5 border-b border-ink/10 p-3">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#ff7a62]" />
-          <span className="h-1.5 w-1.5 rounded-full bg-[#f4c95d]" />
-          <span className="h-1.5 w-1.5 rounded-full bg-[#6ca06c]" />
-        </div>
-        <div className="grid grid-cols-[38px_1fr] gap-3 p-3">
-          <div className="space-y-2 border-r border-ink/10">
-            <div className="h-5 w-5 rounded-md bg-ink" />
-            <div className="h-5 w-5 rounded-md bg-white/70" />
-            <div className="h-5 w-5 rounded-md bg-white/70" />
-          </div>
-          <div>
-            <div className="mb-3 h-2 w-20 rounded-full bg-ink/20" />
-            <div className="grid grid-cols-3 gap-2">
-              {[0, 1, 2].map((column) => (
-                <div className="space-y-2" key={column}>
-                  <div className="h-2 w-10 rounded-full bg-ink/15" />
-                  <div className="h-12 rounded-md bg-white/75 p-2">
-                    <div className="h-1.5 w-full rounded-full bg-ink/10" />
-                    <div className="mt-2 h-1.5 w-2/3 rounded-full bg-ink/10" />
-                  </div>
-                  <div className="h-9 rounded-md bg-white/60" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      <div className="project-window p-6 text-ink">
+        <span className="mb-5 block text-ink/35">
+          <Icon name="database" size={32} />
+        </span>
+        <p className="font-serif text-xl leading-snug">
+          Recherche documentaire
+          <br />
+          en intelligence artificielle
+        </p>
       </div>
     ),
   },
   {
     number: "02",
-    type: "Plateforme e-commerce",
-    title: "Maison Lune",
+    type: "Application mobile",
+    title: "Dishcovery",
     description:
-      "Une boutique en ligne pensée pour une navigation fluide, de la découverte des produits jusqu’au paiement.",
-    stack: ["React", "Express", "MongoDB", "Stripe"],
+      "Une application mobile complète avec navigation, gestion d’état et intégration à une API backend pour la gestion des données.",
+    stack: ["React Native", "Expo", "Firebase", "Firestore"],
     color: "bg-[#f1d8c9]",
+    links: [
+      {
+        label: "Voir sur GitHub",
+        url: "https://github.com/adil-ets/dishcovery",
+      },
+    ],
     visual: (
-      <div className="project-window p-3 text-ink">
-        <div className="mb-3 flex items-center justify-between border-b border-ink/10 pb-2">
-          <span className="font-serif text-xs italic">maison lune</span>
-          <div className="flex gap-2">
-            <span className="h-1.5 w-6 rounded-full bg-ink/15" />
-            <span className="h-1.5 w-4 rounded-full bg-ink/15" />
-          </div>
-        </div>
-        <div className="grid grid-cols-[1.2fr_1fr] gap-3">
-          <div className="flex h-28 items-end bg-[#e9c5b0] p-3">
-            <span className="font-serif text-lg leading-none">
-              Objets pour
-              <br />
-              le quotidien.
-            </span>
-          </div>
-          <div className="grid grid-cols-2 gap-2">
-            <div className="bg-[#eadfd7]" />
-            <div className="bg-[#ded6c9]" />
-            <div className="bg-[#d8c2b4]" />
-            <div className="bg-[#eee8df]" />
-          </div>
-        </div>
+      <div className="project-window p-6 text-ink">
+        <span className="mb-5 block text-ink/35">
+          <Icon name="layers" size={32} />
+        </span>
+        <p className="font-serif text-xl leading-snug">
+          Application mobile
+          <br />
+          multiplateforme
+        </p>
       </div>
     ),
   },
   {
     number: "03",
-    type: "Dashboard",
-    title: "Pulse",
+    type: "Simulation & robotique",
+    title: "Programmation mathématique",
     description:
-      "Un tableau de bord analytique qui transforme des données complexes en indicateurs clairs et actionnables.",
-    stack: ["TypeScript", "React", "REST API", "Chart.js"],
+      "Une librairie de calcul matriciel et de simulation physique, incluant la cinématique inverse d’un bras robotisé.",
+    stack: ["C++", "CMake", "GitHub"],
     color: "bg-[#d9d8ed]",
+    links: [
+      { label: "Voir sur GitHub", url: "https://github.com/KathleenFrancis" },
+    ],
     visual: (
-      <div className="project-window p-3 text-ink">
-        <div className="mb-3 flex items-center justify-between">
-          <div className="h-2 w-20 rounded-full bg-ink/20" />
-          <div className="h-5 w-14 rounded-full bg-white/60" />
-        </div>
-        <div className="grid grid-cols-3 gap-2">
-          {[62, 48, 76].map((value) => (
-            <div className="rounded-md bg-white/55 p-2" key={value}>
-              <div className="mb-2 h-1.5 w-8 rounded-full bg-ink/10" />
-              <span className="font-serif text-lg">{value}%</span>
-            </div>
-          ))}
-        </div>
-        <div className="mt-2 flex h-16 items-end gap-2 rounded-md bg-white/55 px-3 pt-3">
-          {[35, 55, 40, 75, 58, 88, 70, 95].map((height, i) => (
-            <span
-              className="flex-1 rounded-t-sm bg-[#65628d]"
-              key={i}
-              style={{ height: `${height}%` }}
-            />
-          ))}
-        </div>
+      <div className="project-window p-6 text-ink">
+        <span className="mb-5 block text-ink/35">
+          <Icon name="code" size={32} />
+        </span>
+        <p className="font-serif text-xl leading-snug">
+          Matrices, vecteurs
+          <br />
+          et cinématique inverse
+        </p>
+      </div>
+    ),
+  },
+  {
+    number: "04",
+    type: "Outils DevOps",
+    title: "Metrics EQ8",
+    description:
+      "Une API Python de collecte de métriques Kanban et de pull requests via l’API GraphQL de GitHub, avec configuration Kubernetes et suivi des indicateurs d’équipe pour le système MobilitySoft.",
+    stack: ["Python", "SQLite", "GitHub", "GraphQL", "Kubernetes"],
+    color: "bg-[#ece3c9]",
+    links: [
+      {
+        label: "Metrics EQ8",
+        url: "https://github.com/JAMC8/metrics-eq8",
+      },
+      {
+        label: "MobilitySoft",
+        url: "https://github.com/JAMC8/mobilitysoft-eq8",
+      },
+    ],
+    visual: (
+      <div className="project-window p-6 text-ink">
+        <span className="mb-5 block text-ink/35">
+          <Icon name="server" size={32} />
+        </span>
+        <p className="font-serif text-xl leading-snug">
+          Métriques Kanban
+          <br />
+          et pull requests
+        </p>
+      </div>
+    ),
+  },
+  {
+    number: "05",
+    type: "Application mobile",
+    title: "WordCut",
+    description:
+      "Un jeu de mots mobile où l’on réarrange des lettres pour former de nouveaux mots valides, avec validation en temps réel et support bilingue français/anglais.",
+    stack: ["React Native", "Expo", "TypeScript", "Expo Router"],
+    color: "bg-[#f0d9e0]",
+    links: [
+      {
+        label: "Voir sur GitHub",
+        url: "https://github.com/KathleenFrancis/wordcut-mobile",
+      },
+    ],
+    visual: (
+      <div className="project-window p-6 text-ink">
+        <span className="mb-5 block text-ink/35">
+          <Icon name="layers" size={32} />
+        </span>
+        <p className="font-serif text-xl leading-snug">
+          Jeu de mots
+          <br />
+          mobile
+        </p>
+      </div>
+    ),
+  },
+  {
+    number: "06",
+    type: "Jeu vidéo",
+    title: "I don't want to be Isekai'ed",
+    description:
+      "Un jeu vidéo de type top-down où le joueur n’est qu’une ombre, il ne peut pas se déplacer dans la lumière. Le joueur devra donc résoudre des énigmes afin de se frayer un chemin et de retrouver sa vitalité.",
+    stack: ["Unity", "C#", "GitHub"],
+    color: "bg-[#e6d9f0]",
+    links: [
+      {
+        label: "Voir sur GitHub",
+        url: "https://github.com/H2024-equipe-01/I-dont-want-to-be-Isekaied",
+      },
+      {
+        label: "Télécharger le jeu",
+        url: "https://emeulai.itch.io/i-dont-want-to-be-isekaied",
+      },
+    ],
+    visual: (
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        className="project-window h-full w-full"
+        src="https://www.youtube.com/embed/_BT-JGT0efE"
+        title="YouTube video player"
+      ></iframe>
+    ),
+  },
+  {
+    number: "07",
+    type: "Application web",
+    title: "MTL Vélo",
+    description:
+      "Une application web de visualisation de données sur les stations de vélo en libre-service à Montréal, avec intégration d’une API publique et affichage dynamique des données.",
+    stack: ["ReactJS", "TypeScript", "TailwindCSS", "Vite"],
+    color: "bg-[#d9e6f0]",
+    links: [
+      {
+        label: "Voir sur GitHub",
+        url: "https://github.com/svaillancourt98/gti525-e2026-laboratoire",
+      },
+    ],
+    visual: (
+      <div className="project-window p-6 text-ink">
+        <span className="mb-5 block text-ink/35">
+          <Icon name="layers" size={32} />
+        </span>
+        <p className="font-serif text-xl leading-snug">
+          Visualisation de données
+          <br />
+          sur les stations de vélo
+        </p>
       </div>
     ),
   },

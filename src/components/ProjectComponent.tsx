@@ -1,5 +1,4 @@
 import Icon from "./Icon";
-import { Profile } from "../data/Profile";
 import type { Project } from "../data/Projects";
 
 function ProjectComponent({ project }: { project: Project }) {
@@ -21,12 +20,19 @@ function ProjectComponent({ project }: { project: Project }) {
             </span>
           ))}
         </div>
-        <a
-          className="mt-7 inline-flex items-center gap-2 text-sm font-bold underline decoration-ink/25 underline-offset-4 transition-colors hover:text-coral"
-          href={Profile.github}
-        >
-          Voir sur GitHub <Icon name="external" size={16} />
-        </a>
+        <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
+          {project.links.map((link) => (
+            <a
+              className="inline-flex items-center gap-2 text-sm font-bold underline decoration-ink/25 underline-offset-4 transition-colors hover:text-coral"
+              href={link.url}
+              key={link.url}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {link.label} <Icon name="external" size={16} />
+            </a>
+          ))}
+        </div>
       </div>
       <div
         className={`${project.color} flex aspect-[4/3] items-center p-7 transition-transform duration-500 group-hover:-rotate-1 md:p-10`}
