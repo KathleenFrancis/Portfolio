@@ -47,11 +47,11 @@ function AboutSection() {
             solutions
             <span className="italic text-coral-light">
               {" "}
-              simples, durables et humaines.
+              simples, durables et adaptées aux contextes.
             </span>
           </p>
           <p className="mt-7 max-w-xl leading-relaxed text-cream/60">
-            Mes stages et mon alternance m’ont permis de travailler sur des
+            Mes stages et ma formation m’ont permis de travailler sur des
             projets concrets, en collaboration avec des designers, développeurs
             et équipes métier. J’accorde autant d’importance à la qualité du
             code qu’à l’expérience finale.
