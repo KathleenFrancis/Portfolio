@@ -71,61 +71,6 @@ export const Projects: Project[] = [
   },
   {
     number: "03",
-    type: "Simulation & robotique",
-    title: "Programmation mathématique",
-    description:
-      "Une librairie de calcul matriciel et de simulation physique, incluant la cinématique inverse d’un bras robotisé.",
-    stack: ["C++", "CMake", "GitHub"],
-    color: "bg-[#d9d8ed]",
-    links: [
-      { label: "Voir sur GitHub", url: "https://github.com/KathleenFrancis" },
-    ],
-    visual: (
-      <div className="project-window p-6 text-ink">
-        <span className="mb-5 block text-ink/35">
-          <Icon name="code" size={32} />
-        </span>
-        <p className="font-serif text-xl leading-snug">
-          Matrices, vecteurs
-          <br />
-          et cinématique inverse
-        </p>
-      </div>
-    ),
-  },
-  {
-    number: "04",
-    type: "Outils DevOps",
-    title: "Metrics EQ8",
-    description:
-      "Une API Python de collecte de métriques Kanban et de pull requests via l’API GraphQL de GitHub, avec configuration Kubernetes et suivi des indicateurs d’équipe pour le système MobilitySoft.",
-    stack: ["Python", "SQLite", "GitHub", "GraphQL", "Kubernetes"],
-    color: "bg-[#ece3c9]",
-    links: [
-      {
-        label: "Metrics EQ8",
-        url: "https://github.com/JAMC8/metrics-eq8",
-      },
-      {
-        label: "MobilitySoft",
-        url: "https://github.com/JAMC8/mobilitysoft-eq8",
-      },
-    ],
-    visual: (
-      <div className="project-window p-6 text-ink">
-        <span className="mb-5 block text-ink/35">
-          <Icon name="server" size={32} />
-        </span>
-        <p className="font-serif text-xl leading-snug">
-          Métriques Kanban
-          <br />
-          et pull requests
-        </p>
-      </div>
-    ),
-  },
-  {
-    number: "05",
     type: "Application mobile",
     title: "WordCut",
     description:
@@ -152,7 +97,7 @@ export const Projects: Project[] = [
     ),
   },
   {
-    number: "06",
+    number: "04",
     type: "Jeu vidéo",
     title: "I don't want to be Isekai'ed",
     description:
@@ -180,7 +125,7 @@ export const Projects: Project[] = [
     ),
   },
   {
-    number: "07",
+    number: "05",
     type: "Application web",
     title: "MTL Vélo",
     description:
